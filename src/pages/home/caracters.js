@@ -1,6 +1,6 @@
 const Home = () => {
   return (
-    <div>
+    <div className="flex justify-center pt-24">
       <h1>This is the caracters component!</h1>
     </div>
   );

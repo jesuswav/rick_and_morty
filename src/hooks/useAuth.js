@@ -12,19 +12,5 @@ export default function ProviderAuth({ children }) {
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
 }
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
-
 function useProviderAuth() {
-  const [user, setUser] = useState(null); // ESTADO PARA EL USUARIO
-
-  const signIn = async (email, password) => {
-    setUser("login");
-  };
-
-  return {
-    user,
-    signIn,
-  };
 }

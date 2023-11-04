@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRouter } from 'next/router';
 
 var logoUrl =
@@ -15,31 +16,90 @@ const userNavigation = [
 ];
 
 const Header = () => {
+  const [menuVisible, setMenuVisible] = React.useState('hidden');
+  const [settingVisible, setSettingVisible] = React.useState('hidden');
+
   const router = useRouter();
-  const route = router.asPath.substring(1);
   return (
-    <nav className="flex flex-row items-center h-12 m-5">
-      <img className="w-52" src={logoUrl} alt="Logo" onClick={() => router.push('/')}></img>
-      <div className="flex w-full justify-evenly">
-        {navigation.map((item) => (
-          <a
-            key={item.name}
-            href={item.href}
-            className=""
-            aria-current={item.current ? 'page' : 'undefined'}
-          >
-            {item.name}
-          </a>
-        ))}
-      </div>
-      <div className="flex flex-row w-1/4">
-        {userNavigation.map((item) => (
-          <a key={item.name} href={item.href} className="w-full">
-            {item.name}
-          </a>
-        ))}
-      </div>
-    </nav>
+    <div className='fixed w-full bg-black m-0 z-10'>
+      <nav className="flex flex-row items-center h-12 m-5">
+        <img
+          className="w-52"
+          src={logoUrl}
+          alt="Logo"
+          onClick={() => router.push('/')}
+        ></img>
+        {/* Nav Menu Options */}
+        <div className="flex w-full items-center justify-evenly max-sm:hidden">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className=""
+              aria-current={item.current ? 'page' : 'undefined'}
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+        {/* --------- */}
+        <div className="flex flex-row w-2/5 justify-end max-sm:w-full">
+          <div className="w-auto sm:hidden right-0">
+            <img
+              className="h-11"
+              src="https://i.postimg.cc/nzFGgT31/image-1.png"
+              alt="LogoImg"
+              onClick={() => {
+                if (menuVisible == 'hidden') setMenuVisible('flex');
+                else setMenuVisible('hidden');
+              }}
+            ></img>
+            <div
+              className={`${menuVisible} fixed top-20 pt-10 right-0 w-full h-full bg-black flex-col items-center`}
+            >
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-xl my-3"
+                  aria-current={item.current ? 'page' : 'undefined'}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          </div>
+          {/* Setting Options */}
+          <div className="flex flex-row w-full max-sm:hidden">
+            {userNavigation.map((item) => (
+              <a key={item.name} href={item.href} className="w-full">
+                {item.name}
+              </a>
+            ))}
+          </div>
+          <div className="sm:hidden">
+            <img
+              className="h-10"
+              src="https://i.postimg.cc/nLYhN8Tj/image.png"
+              alt="LogoSettings"
+              onClick={() => {
+                if (settingVisible == 'hidden') setSettingVisible('flex');
+                else setSettingVisible('hidden');
+              }}
+            ></img>
+            <div
+              className={`${settingVisible} fixed pt-10 top-20 right-0 w-full h-full bg-black flex-col items-center`}
+            >
+              {userNavigation.map((item) => (
+                <a key={item.name} href={item.href} className="text-xl my-3">
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
   );
 };
 

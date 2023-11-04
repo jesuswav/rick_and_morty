@@ -4,12 +4,12 @@ import Nav from '@common/Nav';
 export default function MainLayout({ children }) {
   return (
     <>
-      <div className="p-6">
+      <div className="">
         <Header />
         {/* <Nav /> */}
-        <main>
-          <div className='flex justify-center'>
-            <div>{children}</div>
+        <main className="top-20">
+          <div className="flex justify-center">
+            <div className="flex w-full justify-center mt-20">{children}</div>
           </div>
         </main>
       </div>

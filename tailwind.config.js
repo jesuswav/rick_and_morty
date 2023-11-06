@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         ...colors,
+        "color-fondo-oscuro": "#272727"
       },
     },
   },

@@ -21,8 +21,8 @@ const Header = () => {
 
   const router = useRouter();
   return (
-    <div className='fixed w-full bg-black m-0 z-10'>
-      <nav className="flex flex-row items-center h-12 m-5">
+    <div className='fixed top-0 left-0 right-5 bg-color-fondo-oscuro z-10'>
+      <nav className="flex flex-row w-full items-center h-12 m-5 pr-5">
         <img
           className="w-52"
           src={logoUrl}

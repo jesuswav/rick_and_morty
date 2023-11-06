@@ -5,9 +5,9 @@ export default function MainLayout({ children }) {
   return (
     <>
       <div className="">
-        <Header />
         {/* <Nav /> */}
         <main className="top-20">
+          <Header />
           <div className="flex justify-center">
             <div className="flex w-full justify-center mt-20">{children}</div>
           </div>

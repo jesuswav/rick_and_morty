@@ -32,7 +32,7 @@ const useFetch = async (endPoint) => {
 
 
   var characters = [];
-  for (let i = 50; i < 100; i++) {
+  for (let i = 0; i < 20; i++) {
     characters.push(data[i]);
   }
 

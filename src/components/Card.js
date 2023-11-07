@@ -2,7 +2,7 @@ const Card = (data) => {
   return (
     <div className="bg-color-fondo-oscuro flex flex-row w-full max-sm:w-11/12 justify-start pl-5 py-4 border-2 rounded-3xl border-solid border-gray-400 cursor-pointer hover:scale-105 duration-200">
       <div className="flex">
-        <img className="h-32 rounded-2xl object-cover" src={data.data.image} alt="Image"></img>
+        <img className="h-32 rounded-2xl object-cover" src={data?.data.image} alt="Image"></img>
       </div>
       <div className="flex flex-col ml-4">
         <h3 className="font-bold">{data.data.name}</h3>

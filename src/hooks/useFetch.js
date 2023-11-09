@@ -1,42 +1,32 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useFetch = async (endPoint) => {
-  var data = [];
-  try {
-    const response = await axios({
-      method: 'get',
-      url: endPoint,
-    });
-    // data = response.data.results;
-    for (let i = 1; i < response.data.info.pages; i++) {
+const useFetch = (endPoint, page) => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
       try {
-        const response = await axios({
-          method: 'get',
-          url: `${endPoint}?page=${i}`,
-        });
-        var array = response.data.results;
-        array.forEach((element) => {
-          data.push(element);
-        });
+        let url = endPoint;
+        if (page > 1) {
+          url = `${endPoint}?page=${page}`;
+        }
+
+        const response = await axios.get(url);
+        setData(response.data.results);
+        setLoading(false);
       } catch (error) {
-        console.error(error);
+        setError(error);
+        setLoading(false);
       }
-    }
-    console.log(response.data);
-  } catch (error) {
-    console.error(error);
-  }
+    };
 
-  console.log(data);
+    fetchData();
+  }, [endPoint, page]);
 
-
-  var characters = [];
-  for (let i = 0; i < 20; i++) {
-    characters.push(data[i]);
-  }
-
-  return characters;
+  return { data, loading, error };
 };
 
 export default useFetch;

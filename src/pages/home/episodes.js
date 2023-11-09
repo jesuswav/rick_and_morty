@@ -1,14 +1,41 @@
+import { useEffect, useState } from 'react';
 import EpisodeCard from '@components/EpisodeCard';
 import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
-
-const episodes = await useFetch(endPoints.episodes);
-console.log('Episodios: ', episodes);
+import Paginate from '@components/Paginate';
 
 const Episodes = () => {
+  const [episodes, setEpisodes] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const {
+    data: fetchedEpisodes,
+    loading,
+    error,
+  } = useFetch(endPoints.episodes, currentPage);
+
+  useEffect(() => {
+    if (!loading && !error) {
+      setEpisodes(fetchedEpisodes);
+      console.log(fetchedEpisodes);
+    }
+  }, [fetchedEpisodes, loading, error]);
+
   return (
-    <div className="flex justify-center pt-24">
-      <EpisodeCard></EpisodeCard>
+    <div>
+      <div>
+        <div className="flex h-10 items-center justify-center w-full pt-32 max-sm:pt-32">
+          <Paginate
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          ></Paginate>
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 p-10 max-sm:flex flex-col max-sm:p-5 items-center w-full">
+        {episodes.map((item) => (
+          <EpisodeCard key={item.id} data={item}></EpisodeCard>
+        ))}
+      </div>
     </div>
   );
 };

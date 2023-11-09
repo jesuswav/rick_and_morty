@@ -22,12 +22,12 @@ const Header = () => {
   const router = useRouter();
   return (
     <div className='fixed top-0 left-0 right-5 bg-color-fondo-oscuro z-10'>
-      <nav className="flex flex-row w-full items-center h-12 m-5 pr-5">
+      <nav className="flex flex-row w-full items-center h-12 m-5 pr-5 overflow-hidden">
         <img
-          className="w-52"
+          className="h-24 z-30"
           src={logoUrl}
           alt="Logo"
-          onClick={() => router.push('/')}
+          // onClick={() => router.push('/')}
         ></img>
         {/* Nav Menu Options */}
         <div className="flex w-full items-center justify-evenly max-sm:hidden">

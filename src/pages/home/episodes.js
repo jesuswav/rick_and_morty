@@ -3,6 +3,7 @@ import EpisodeCard from '@components/EpisodeCard';
 import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
 import Paginate from '@components/Paginate';
+import { Pagination } from '@mui/material';
 
 const Episodes = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -16,8 +17,8 @@ const Episodes = () => {
 
   useEffect(() => {
     if (!loading && !error) {
-      setEpisodes(fetchedEpisodes);
-      console.log(fetchedEpisodes);
+      setEpisodes(fetchedEpisodes.results);
+      console.log('Pages', fetchedEpisodes.info.pages);
     }
   }, [fetchedEpisodes, loading, error]);
 
@@ -28,6 +29,7 @@ const Episodes = () => {
           <Paginate
             setCurrentPage={setCurrentPage}
             currentPage={currentPage}
+            pages={fetchedEpisodes.info?.pages}
           ></Paginate>
         </div>
       </div>

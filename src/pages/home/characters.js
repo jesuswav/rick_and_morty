@@ -16,7 +16,7 @@ const Caracters = () => {
 
   useEffect(() => {
     if (!loading && !error) {
-      setCharacters(fetchedCharacters);
+      setCharacters(fetchedCharacters.results);
       console.log(characters);
     }
   }, [fetchedCharacters, loading, error]);
@@ -27,6 +27,7 @@ const Caracters = () => {
         <Paginate
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
+          pages={fetchedCharacters.info?.pages}
         ></Paginate>
       </div>
       <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 p-10 max-sm:flex flex-col max-sm:p-5 items-center w-full">

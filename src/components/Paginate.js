@@ -1,7 +1,4 @@
-const Paginate = ({ setCurrentPage, currentPage }) => {
-
-  var pages = [currentPage, currentPage + 1, currentPage + 2, currentPage + 3, currentPage + 4];
-
+const Paginate = ({ setCurrentPage, currentPage, pages }) => {
   const addCurrentPage = () => {
     setCurrentPage(currentPage + 1);
   };
@@ -9,10 +6,16 @@ const Paginate = ({ setCurrentPage, currentPage }) => {
   const quitCurrentPage = () => {
     setCurrentPage(currentPage - 1);
   };
-
   return (
     <div className="flex flex-row items-center justify-center mb-10 select-none">
-      <div onClick={quitCurrentPage} className={pages[0] < 2 ? 'pointer-events-none cursor-pointer' : 'cursor-pointer p-2'}>
+      <div
+        onClick={quitCurrentPage}
+        className={
+          currentPage < 2
+            ? 'pointer-events-none cursor-pointer'
+            : 'cursor-pointer p-2'
+        }
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -28,15 +31,32 @@ const Paginate = ({ setCurrentPage, currentPage }) => {
           />
         </svg>
       </div>
-      {pages.map((item) => (
-        <div
-          className="border-2 font-semibold rounded-md mx-2 cursor-pointer border-white p-1 px-3"
-          key={item}
-        >
-          {item}
-        </div>
-      ))}
-      <div onClick={addCurrentPage} className="cursor-pointer p-2">
+      <div
+        className="border-2 bg-gray-600 font-semibold rounded-md mx-2 cursor-pointer border-white p-1 px-3"
+        onClick={() => setCurrentPage(currentPage)}
+      >
+        {currentPage}
+      </div>
+      <div
+        className="border-2 bg-gray-600 font-semibold rounded-md mx-2 cursor-pointer border-white p-1 px-3"
+        onClick={() => setCurrentPage(currentPage)}
+      >
+        {currentPage + 1}
+      </div>
+      <div
+        className="border-2 bg-gray-600 font-semibold rounded-md mx-2 cursor-pointer border-white p-1 px-3"
+        onClick={() => setCurrentPage(currentPage)}
+      >
+        {currentPage + 2}
+      </div>
+      <div
+        onClick={addCurrentPage}
+        className={
+          currentPage >= pages
+            ? 'pointer-events-none cursor-pointer'
+            : 'cursor-pointer p-2'
+        }
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

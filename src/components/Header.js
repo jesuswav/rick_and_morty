@@ -6,13 +6,13 @@ var logoUrl =
 
 const navigation = [
   { name: 'Home', href: '/home/', current: true },
-  { name: 'Caracters', href: '/home/caracters/', current: false },
+  { name: 'Caracters', href: '/home/characters/', current: false },
   { name: 'Episodes', href: '/home/episodes/', current: false },
 ];
 
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
+  { name: 'Your Profile', href: '/home/porfile' },
+  { name: 'Settings', href: '/home/settings' },
 ];
 
 const Header = () => {

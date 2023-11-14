@@ -15,7 +15,7 @@ const useFetch = (endPoint, page) => {
         }
 
         const response = await axios.get(url);
-        setData(response.data.results);
+        setData(response.data);
         setLoading(false);
       } catch (error) {
         setError(error);

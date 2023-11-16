@@ -21,7 +21,7 @@ const Header = () => {
 
   const router = useRouter();
   return (
-    <div className='fixed top-0 left-0 right-5 bg-color-fondo-oscuro z-10'>
+    <div className="fixed top-0 left-0 right-5 bg-color-fondo-oscuro z-10">
       <nav className="flex flex-row w-full items-center h-12 m-5 pr-5 overflow-hidden">
         <img
           className="h-24 z-30"
@@ -72,7 +72,11 @@ const Header = () => {
           {/* Setting Options */}
           <div className="flex flex-row w-full max-sm:hidden">
             {userNavigation.map((item) => (
-              <a key={item.name} href={item.href} className="w-full">
+              <a
+                key={item.name}
+                href={item.href}
+                className="w-full font-medium"
+              >
                 {item.name}
               </a>
             ))}

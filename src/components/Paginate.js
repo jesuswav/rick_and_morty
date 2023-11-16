@@ -38,14 +38,14 @@ const Paginate = ({ setCurrentPage, currentPage, pages }) => {
         {currentPage}
       </div>
       <div
-        className="border-2 bg-gray-600 font-semibold rounded-md mx-2 cursor-pointer border-white p-1 px-3"
-        onClick={() => setCurrentPage(currentPage)}
+        className="border-2 font-semibold rounded-md mx-2 cursor-pointer border-white p-1 px-3"
+        onClick={() => setCurrentPage(currentPage + 1)}
       >
         {currentPage + 1}
       </div>
       <div
-        className="border-2 bg-gray-600 font-semibold rounded-md mx-2 cursor-pointer border-white p-1 px-3"
-        onClick={() => setCurrentPage(currentPage)}
+        className="border-2 font-semibold rounded-md mx-2 cursor-pointer border-white p-1 px-3"
+        onClick={() => setCurrentPage(currentPage + 2)}
       >
         {currentPage + 2}
       </div>

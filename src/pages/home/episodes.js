@@ -4,6 +4,7 @@ import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
 import Paginate from '@components/Paginate';
 import { Pagination } from '@mui/material';
+import Search from '@components/Search';
 
 const Episodes = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -23,21 +24,22 @@ const Episodes = () => {
   }, [fetchedEpisodes, loading, error]);
 
   return (
-    <div>
+    <div className="pt-24 max-sm:pt-24 p-10">
       <div>
-        <div className="flex h-10 items-center justify-center w-full pt-32 max-sm:pt-32">
+        <Search></Search>
+      </div>
+      <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 p-4 px-10 max-sm:flex flex-col max-sm:p-5 items-center w-full">
+        {episodes.map((item) => (
+          <EpisodeCard key={item.id} data={item}></EpisodeCard>
+        ))}
+      </div>
+      <div className="flex pt-10 h-10 items-center justify-center w-full">
           <Paginate
             setCurrentPage={setCurrentPage}
             currentPage={currentPage}
             pages={fetchedEpisodes.info?.pages}
           ></Paginate>
         </div>
-      </div>
-      <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 p-10 max-sm:flex flex-col max-sm:p-5 items-center w-full">
-        {episodes.map((item) => (
-          <EpisodeCard key={item.id} data={item}></EpisodeCard>
-        ))}
-      </div>
     </div>
   );
 };

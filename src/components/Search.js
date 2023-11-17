@@ -1,7 +1,7 @@
 const Search = () => {
   return (
     <div className="flex flex-row items-center w-full justify-end px-8">
-      <input className="bg-warmGray-700 h-10 p-3 rounded-md w-2/5 max-sm:w-full mx-2"></input>
+      <input className="bg-zinc-500 h-10 p-3 border-none rounded-md w-2/5 max-sm:w-full mx-2"></input>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

@@ -24,7 +24,7 @@ const Episodes = () => {
   }, [fetchedEpisodes, loading, error]);
 
   return (
-    <div className="pt-24 max-sm:pt-24 p-10">
+    <div className="mt-24 max-sm:mt-24 max-sm:px-0">
       <div>
         <Search></Search>
       </div>

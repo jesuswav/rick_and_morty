@@ -3,7 +3,6 @@ import EpisodeCard from '@components/EpisodeCard';
 import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
 import Paginate from '@components/Paginate';
-import { Pagination } from '@mui/material';
 import Search from '@components/Search';
 
 const Episodes = () => {

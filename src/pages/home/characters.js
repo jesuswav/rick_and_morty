@@ -4,6 +4,7 @@ import Paginate from '@components/Paginate';
 import Search from '@components/Search';
 import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
+import { CardContext } from 'context';
 
 const Caracters = () => {
   const [characters, setCharacters] = useState([]);
@@ -24,7 +25,7 @@ const Caracters = () => {
 
   return (
     <div className="mt-24 max-sm:mt-24 max-sm:px-0">
-      <div className='flex items-center justify-center w-full'>
+      <div className="flex items-center justify-center w-full">
         <Search></Search>
       </div>
       <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 p-4 px-10 max-sm:flex flex-col max-sm:p-5 items-center max-sm:w-full">

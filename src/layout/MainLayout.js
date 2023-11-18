@@ -1,7 +1,12 @@
+import React from 'react';
 import Header from '@components/Header';
 import Nav from '@common/Nav';
+import { CardContext } from 'context';
+import { Modal } from 'Modal/Modal';
+import CharacterDetail from '@components/CharacterDetail';
 
 export default function MainLayout({ children }) {
+  const { openModal, setOpenModal } = React.useContext(CardContext);
   return (
     <>
       <div className="">
@@ -12,6 +17,13 @@ export default function MainLayout({ children }) {
             <div className="flex w-full justify-center mt-20">{children}</div>
           </div>
         </main>
+      </div>
+      <div id="modal">
+        {openModal && (
+          <Modal>
+            <CharacterDetail></CharacterDetail>
+          </Modal>
+        )}
       </div>
     </>
   );

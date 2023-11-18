@@ -7,7 +7,7 @@ const CharacterDetail = (data) => {
 
   return (
     <div className="bg-opacity-75 bg-black top-0 left-0 right-0 bottom-0 absolute flex items-center justify-center">
-      <div className="rounded-lg w-3/4 h-3/4 opacity-100 flex flex-col bg-color-fondo-oscuro">
+      <div className="rounded-xl w-3/4 h-3/4 max-sm:w-10/12 opacity-100 flex flex-col bg-color-fondo-oscuro">
         <div className="flex w-full justify-end">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -32,16 +32,16 @@ const CharacterDetail = (data) => {
           <div className="top-0 flex justify-center items-center w-full">
             <h1 className="font-bold text-2xl m-5">Character Detail!</h1>
           </div>
-          <div className="flex flex-row w-full ml-36 justify-start max-sm:flex-col">
-            <div className="p-4 pr-5">
+          <div className="flex flex-row w-full ml-36 max-sm:ml-12 justify-start max-sm:flex-col max-sm:justify-center">
+            <div className="p-4 pr-5 max-sm:pb-0 max-sm:pr-0 max-sm:mt-0">
               <img
-                className="rounded-lg max-sm:h-32"
+                className="rounded-lg max-sm:h-44"
                 src={character.data.image}
                 alt="img"
               />
             </div>
-            <div className="text-xl max-sm:text-sm max-sm:p-4">
-              <span className="flex flex-row pt-5">
+            <div className="text-xl max-sm:text-sm max-sm:p-4 max-sm:w-15">
+              <span className="flex flex-row pt-5 max-sm:pt-2">
                 <p className="font-bold pr-1">Nombre:</p>
                 <p className="text-gray-300">{character.data.name}</p>
               </span>
@@ -58,6 +58,10 @@ const CharacterDetail = (data) => {
                 <p className="text-gray-300">{character.data.origin.name}</p>
               </span>
               <span className="flex flex-row pt-5">
+                <p className="font-bold pr-1">Especie:</p>
+                <p className="text-gray-300">{character.data.species}</p>
+              </span>
+              <span className="flex flex-row pt-5">
                 <p className="font-bold pr-1">Status:</p>
                 <p
                   className={
@@ -69,11 +73,15 @@ const CharacterDetail = (data) => {
                   {character.data.status}
                 </p>
               </span>
-              <span className="flex flex-row pt-5">
-                <p className="font-bold pr-1">Aparece en:</p>
-                <p className="text-gray-300">{character.data.episode.length} Episodios</p>
-              </span>
             </div>
+          </div>
+          <div className="w-full ml-44 max-sm:ml-20">
+            <span className="flex flex-row pt-5 max-sm:pt-0 text-xl max-sm:text-sm max-sm:pl-0">
+              <p className="font-bold pr-1">Aparece en:</p>
+              <p className="text-gray-300">
+                {character.data.episode.length} Episodios
+              </p>
+            </span>
           </div>
         </div>
       </div>

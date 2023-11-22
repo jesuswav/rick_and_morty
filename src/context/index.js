@@ -6,14 +6,17 @@ function CardProvider({ children }) {
   console.log('Provider');
 
   const [openModal, setOpenModal] = React.useState(false);
-  const [character, setCharacter] = React.useState([]);
+  const [openEpisodeModal, setOpenEpisodeModal] = React.useState(false);
+  const [modalData, setModalData] = React.useState([]);
 
   return (
     <CardContext.Provider value={{
       openModal,
       setOpenModal,
-      character,
-      setCharacter
+      modalData,
+      setModalData,
+      openEpisodeModal,
+      setOpenEpisodeModal
     }}>
       {children}
     </CardContext.Provider>

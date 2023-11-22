@@ -4,9 +4,12 @@ import Nav from '@common/Nav';
 import { CardContext } from 'context';
 import { Modal } from 'Modal/Modal';
 import CharacterDetail from '@components/CharacterDetail';
+import EpisodeDetail from '@components/EpisodeDetail';
 
 export default function MainLayout({ children }) {
   const { openModal, setOpenModal } = React.useContext(CardContext);
+  const { openEpisodeModal, setEpisodeOpenModal } =
+    React.useContext(CardContext);
   return (
     <>
       <div className="">
@@ -22,6 +25,11 @@ export default function MainLayout({ children }) {
         {openModal && (
           <Modal>
             <CharacterDetail></CharacterDetail>
+          </Modal>
+        )}
+        {openEpisodeModal && (
+          <Modal>
+            <EpisodeDetail></EpisodeDetail>
           </Modal>
         )}
       </div>

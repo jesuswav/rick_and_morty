@@ -3,12 +3,12 @@ import { CardContext } from 'context';
 
 const Card = (data) => {
   const { openModal, setOpenModal } = React.useContext(CardContext);
-  const { character, setCharacter } = React.useContext(CardContext);
+  const { modalData, setModalData } = React.useContext(CardContext);
   return (
     <div
       onClick={() => {
         setOpenModal(!openModal);
-        setCharacter(data);
+        setModalData(data);
         console.log(openModal);
       }}
       className="bg-color-fondo-oscuro flex flex-row w-full max-sm:w-11/12 justify-start pl-5 py-4 border-2 rounded-3xl border-solid border-gray-400 cursor-pointer hover:scale-105 duration-200"

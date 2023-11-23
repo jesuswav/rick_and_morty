@@ -4,7 +4,6 @@ import Paginate from '@components/Paginate';
 import Search from '@components/Search';
 import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
-import { CardContext } from 'context';
 
 const Caracters = () => {
   const [characters, setCharacters] = useState([]);

@@ -35,8 +35,8 @@ const CharacterDetail = () => {
         {/* Content */}
         <div className="w-full h-full flex flex-col items-center">
           {/* Info from API */}
-          <div className="flex flex-row w-full justify-evenly max-sm:justify-center items-center h-full max-sm:flex-col">
-            <div className="m-2">
+          <div className="flex flex-row w-full justify-center max-sm:justify-center items-center h-full max-sm:flex-col">
+            <div className="m-2 pr-6">
               <img className="rounded-lg" src={modalData.data.image} alt="img" />
             </div>
             <div className="flex flex-col justify-start max-sm:w-full max-sm:pl-2">

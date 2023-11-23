@@ -9,6 +9,10 @@ function CardProvider({ children }) {
   const [openEpisodeModal, setOpenEpisodeModal] = React.useState(false);
   const [modalData, setModalData] = React.useState([]);
 
+  // States for Slider
+  const [start, setStart] = React.useState(1);
+  const [end, setEnd] = React.useState(4);
+
   return (
     <CardContext.Provider value={{
       openModal,
@@ -16,7 +20,11 @@ function CardProvider({ children }) {
       modalData,
       setModalData,
       openEpisodeModal,
-      setOpenEpisodeModal
+      setOpenEpisodeModal,
+      start,
+      setStart,
+      end,
+      setEnd
     }}>
       {children}
     </CardContext.Provider>

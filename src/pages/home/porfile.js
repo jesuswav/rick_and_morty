@@ -1,6 +1,6 @@
 const Porfile = () => {
   return (
-    <div className="flex flex-col items-center justify-evenly h-full">
+    <div className="flex flex-col mt-16 items-center justify-evenly h-full">
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-xl">Porfile</h1>
         <div className="flex flex-col justify-center items-center h-full">

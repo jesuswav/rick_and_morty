@@ -4,6 +4,7 @@ import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
 import Slider from '@common/Slider';
 import Card from '@components/Card';
+import Footer from '@common/Footer';
 import { CardContext } from 'context';
 
 const Home = () => {
@@ -51,22 +52,47 @@ const Home = () => {
         ></img>
       </div>
       <div className="p-10 px-28 max-sm:px-5">
-        <h2 className="text-3xl mb-5 font-bold">
-          Bienvenido a "Rick and Morty Universe"
+        <h2 className="text-4xl mb-5 font-bold">
+          Welcome to "Rick and Morty Universe"
         </h2>
         <span className="text-xl py-10 text-gray-300">
-          Tu fuente definitiva para explorar el vasto multiverso de{' '}
-          <span className="font-bold text-gray-100">Rick and Morty</span>. Sumérgete en el caos
-          interdimensional mientras exploras detalladas fichas de personajes que
-          dan vida a esta hilarante serie animada.
+          Your definitive source for exploring the vast
+          <span className="font-bold text-gray-100"> Rick and Morty </span>.
+          multiverse. Immerse yourself in interdimensional chaos as you explore
+          detailed character sheets that bring this hilarious animated series to
+          life.
         </span>
       </div>
-      <div className="mx-32 select-none max-sm:mx-5">
+      <div className="flex w-full justify-center max-sm:flex-col max-sm:p-10">
+        <iframe
+          className="max-sm:w-full"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/j9_cxNM3BkI?si=ZIQwjGDthX8iKCv2"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <div className="flex flex-col w-96 px-10 max-sm:w-full max-sm:px-2">
+          <h1 className="text-2xl pl-0">New season out now!</h1>
+          <span className="text-gray-300 pt-2 text-lg">
+            En esta nueva entrega, los personajes que amas enfrentarán desafíos
+            aún mayores, revelaciones impactantes y decisiones que cambiarán el
+            rumbo de sus vidas. ¿Estás listo para un viaje lleno de suspense,
+            intriga y acción?
+          </span>
+        </div>
+      </div>
+      <div className="mx-44 select-none max-sm:mx-5">
         <Slider>
           {showCharacters?.map((item) => (
             <Card key={item?.id} data={item}></Card>
           ))}
         </Slider>
+      </div>
+      <div className="w-full mt-5">
+        <Footer></Footer>
       </div>
     </div>
   );

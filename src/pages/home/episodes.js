@@ -3,6 +3,7 @@ import EpisodeCard from '@components/EpisodeCard';
 import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
 import Paginate from '@components/Paginate';
+import Footer from '@common/Footer';
 import Search from '@components/Search';
 
 const Episodes = () => {
@@ -23,22 +24,25 @@ const Episodes = () => {
   }, [fetchedEpisodes, loading, error]);
 
   return (
-    <div className="mt-24 max-sm:mt-24 max-sm:px-0">
+    <div className="mt-24 max-sm:mt-24 max-sm:px-0 w-full">
       <div>
         <Search></Search>
       </div>
-      <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 p-4 px-10 max-sm:flex flex-col max-sm:p-5 items-center w-full">
+      <div className="grid grid-cols-3 gap-6 pt-8 max-lg:grid-cols-2 p-4 px-10 max-sm:flex flex-col max-sm:p-5 items-center w-full">
         {episodes.map((item) => (
           <EpisodeCard key={item.id} data={item}></EpisodeCard>
         ))}
       </div>
       <div className="flex pt-10 h-10 items-center justify-center w-full">
-          <Paginate
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
-            pages={fetchedEpisodes.info?.pages}
-          ></Paginate>
-        </div>
+        <Paginate
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          pages={fetchedEpisodes.info?.pages}
+        ></Paginate>
+      </div>
+      <div className="w-full mt-5">
+        <Footer></Footer>
+      </div>
     </div>
   );
 };

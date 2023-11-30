@@ -3,8 +3,6 @@ import React, { useEffect } from 'react';
 const CardContext = React.createContext();
 
 function CardProvider({ children }) {
-  console.log('Provider');
-
   const [openModal, setOpenModal] = React.useState(false);
   const [openEpisodeModal, setOpenEpisodeModal] = React.useState(false);
   const [modalData, setModalData] = React.useState([]);
@@ -16,26 +14,13 @@ function CardProvider({ children }) {
   const [start, setStart] = React.useState(0);
   const [end, setEnd] = React.useState(3);
 
-  var windowHeigth;
-  var windowWidth;
+  // Satate for filtered characters
+  const [filteredCharacters, setFilteredCharacters] = React.useState([]);
+  // State for not searched characters
+  const [notFilterCharacters, setNotFilterCharacters] = React.useState();
 
-  // useEffect(() => {
-  //   window.addEventListener('resize', () => {
-  //     windowHeigth = window.innerHeight;
-  //     windowWidth = window.innerWidth;
-  //     if (windowWidth < 1025) {
-  //       setEnd(3);
-  //       console.log('Hola');
-  //     }
-  //     if (windowWidth < 639) {
-  //       console.log('Hola2');
-  //       setEnd(2);
-  //     }
-  //     if (windowWidth > 1122) {
-  //       setEnd(4);
-  //     }
-  //   });
-  // }, [windowHeigth, windowWidth]);
+  // State for global error
+  const [globalError, setGlobalError] = React.useState(null);
 
   return (
     <CardContext.Provider
@@ -52,6 +37,12 @@ function CardProvider({ children }) {
         setStart,
         end,
         setEnd,
+        filteredCharacters,
+        setFilteredCharacters,
+        notFilterCharacters,
+        setNotFilterCharacters,
+        globalError,
+        setGlobalError,
       }}
     >
       {children}

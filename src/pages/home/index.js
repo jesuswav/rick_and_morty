@@ -15,6 +15,32 @@ const Home = () => {
   const { start, setStart } = React.useContext(CardContext);
   const { end, setEnd } = React.useContext(CardContext);
 
+  const slides = [
+    { url: 'https://i.postimg.cc/xjBSzw6r/banner2.jpg' },
+    { url: 'https://i.postimg.cc/dVSrd7s6/banner-copia.png' },
+    { url: 'https://i.postimg.cc/L4g0PnqD/banner6.jpg' },
+    { url: 'https://i.postimg.cc/pTbX8vgy/banner7.webp' },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Logic for image slider
+  const prevSlide = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const nextSlide = () => {
+    const isLastSlide = currentIndex === slides.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex);
+  };
+
   const {
     data: fetchedCharacters,
     loading,
@@ -44,12 +70,58 @@ const Home = () => {
 
   return (
     <div className="flex flex-col items-center justify-center pt-20">
-      <div className="flex w-full h-full mt-2">
-        <img
-          className="w-full"
-          src="https://i.postimg.cc/rpMrnwpk/banner.png"
-          alt="Banner"
-        ></img>
+      <div className="max-w-[full] h-[320px] w-full m-auto py-0 px-4 relative group">
+        <div
+          style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+          className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
+        ></div>
+        {/* Left Arrow */}
+        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+            onClick={prevSlide}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+        </div>
+        {/* Right Arrow */}
+        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+            onClick={nextSlide}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </div>
+        <div className="flex top-4 justify-center py-2">
+          {slides.map((slide, slideIndex) => (
+            <div
+              key={slideIndex}
+              onClick={() => goToSlide(slideIndex)}
+              className="text-2xl cursor-pointer"
+            >
+              .
+            </div>
+          ))}
+        </div>
       </div>
       <div className="p-10 px-28 max-sm:px-5">
         <h2 className="text-4xl mb-5 font-bold">
@@ -70,7 +142,6 @@ const Home = () => {
           height="315"
           src="https://www.youtube.com/embed/j9_cxNM3BkI?si=ZIQwjGDthX8iKCv2"
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>

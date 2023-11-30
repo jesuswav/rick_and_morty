@@ -9,6 +9,12 @@ module.exports = {
         ...colors,
         "color-fondo-oscuro": "#272727"
       },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
+      }
     },
   },
 };

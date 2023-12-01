@@ -2,19 +2,21 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       colors: {
         ...colors,
-        "color-fondo-oscuro": "#272727"
+        'color-fondo-oscuro': '#272727',
       },
-      keyframes: {
-        wiggle: {
-          '0%, 100%': { transform: 'rotate(-3deg)' },
-          '50%': { transform: 'rotate(3deg)' },
-        }
-      }
+      appears: {
+        '0%': { transform: 'scale(0)' },
+        '50%': { transform: 'scale(0.5)' },
+        '100%': { transform: 'scale(0)' },
+      },
     },
   },
 };

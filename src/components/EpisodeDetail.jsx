@@ -28,7 +28,7 @@ const EpisodeDetail = () => {
 
   return (
     <div className="bg-opacity-75 bg-black top-0 left-0 right-0 bottom-0 absolute flex items-center justify-center pt-12">
-      <div className="rounded-xl w-3/4 h-3/4 max-sm:w-10/12 max-sm:h-5/6 opacity-100 flex flex-col justify-center items-center bg-color-fondo-oscuro p-4">
+      <div className="Modal rounded-xl w-3/4 h-3/4 max-sm:w-10/12 max-sm:h-5/6 opacity-100 flex flex-col justify-center items-center bg-color-fondo-oscuro p-4">
         {/* XMarkIcon */}
         <div className="flex w-full justify-end z-10 items-center">
           <div className=" relative flex justify-center items-center w-full">

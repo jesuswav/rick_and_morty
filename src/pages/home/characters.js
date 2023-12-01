@@ -32,7 +32,7 @@ const Caracters = () => {
   console.log('Not filtered characters value', notFilterCharacters);
 
   return (
-    <div className="mt-24 max-sm:mt-24 max-sm:px-0 w-full">
+    <div className="Appears mt-24 max-sm:mt-24 max-sm:px-0 w-full">
       <div className="flex items-center justify-center w-full">
         <Search></Search>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
 import Slider from '@common/Slider';
@@ -16,8 +17,8 @@ const Home = () => {
   const { end, setEnd } = React.useContext(CardContext);
 
   const slides = [
-    { url: 'https://i.postimg.cc/xjBSzw6r/banner2.jpg' },
     { url: 'https://i.postimg.cc/dVSrd7s6/banner-copia.png' },
+    { url: 'https://i.postimg.cc/xjBSzw6r/banner2.jpg' },
     { url: 'https://i.postimg.cc/L4g0PnqD/banner6.jpg' },
     { url: 'https://i.postimg.cc/pTbX8vgy/banner7.webp' },
   ];
@@ -68,9 +69,19 @@ const Home = () => {
 
   console.log('personajes', showCharacters);
 
+  const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
+
+  const addItem = () => {
+    setItems([...items, `Item ${items.length + 1}`]);
+  };
+
+  const removeItem = () => {
+    setItems(items.slice(0, -1));
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center pt-20">
-      <div className="max-w-[full] h-[320px] w-full m-auto py-0 px-4 relative group">
+    <div className="Appears flex flex-col items-center justify-center pt-20">
+      <div className="Appears max-w-[full] h-[320px] max-sm:h-[162px] w-full m-auto py-0 px-4 relative group">
         <div
           style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
           className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
@@ -116,9 +127,9 @@ const Home = () => {
             <div
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
-              className="text-2xl cursor-pointer"
+              className="text-xs cursor-pointer"
             >
-              .
+              ⚪
             </div>
           ))}
         </div>
@@ -137,9 +148,7 @@ const Home = () => {
       </div>
       <div className="flex w-full justify-center max-sm:flex-col max-sm:p-10">
         <iframe
-          className="max-sm:w-full"
-          width="560"
-          height="315"
+          className="max-sm:w-full h-[315px] w-[560px] max-sm:h-[192px] max-sm:pb-3"
           src="https://www.youtube.com/embed/j9_cxNM3BkI?si=ZIQwjGDthX8iKCv2"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -155,13 +164,18 @@ const Home = () => {
           </span>
         </div>
       </div>
-      <div className="mx-44 select-none max-sm:mx-5">
-        <Slider>
-          {showCharacters?.map((item) => (
-            <Card key={item?.id} data={item}></Card>
-          ))}
-        </Slider>
-      </div>
+      <TransitionGroup className="transition-group">
+        <div className="Appears mx-44 select-none max-sm:mx-5">
+          <Slider>
+            {showCharacters?.map((item, index) => (
+              <CSSTransition key={index} timeout={500} classNames="fade">
+                <Card key={item?.id} data={item}></Card>
+              </CSSTransition>
+            ))}
+          </Slider>
+        </div>
+      </TransitionGroup>
+
       <div className="w-full mt-5">
         <Footer></Footer>
       </div>

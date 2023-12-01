@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState, useCallback } from 'react';
+import ImageSlider from '@common/ImageSlider';
 import { CardContext } from 'context';
 import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
@@ -9,7 +10,7 @@ const EpisodeDetail = () => {
   const { openEpisodeModal, setOpenEpisodeModal } =
     React.useContext(CardContext);
   const { modalData, setModalData } = React.useContext(CardContext);
-  const [coincidencias, setCoincidencias] = useState([]);
+  const { coincidencias, setCoincidencias } = React.useContext(CardContext);
 
   // Llamada directa al hook useFetch dentro del componente
   const {
@@ -19,33 +20,15 @@ const EpisodeDetail = () => {
   } = useFetch(endPoints.characters, -1, coincidencias);
 
   useEffect(() => {
-    const coincidenciasArray = modalData.data.characters
-      .map((cadena) => {
-        const coincidencia = cadena.match(/\/(\d+)$/);
-        return coincidencia ? coincidencia[1] : null;
-      })
-      .filter((numeroDespuesDeSlash) => numeroDespuesDeSlash !== null);
-
-    console.log('Coincidencias array', coincidenciasArray);
-
-    // Actualiza el estado de coincidencias después de obtener el array
-    setCoincidencias(coincidenciasArray);
-
     if (!loading && !error) {
-      setCharacters(fetchedCharacters.results);
+      setCharacters(fetchedCharacters);
+      console.log('Personajes', characters);
     }
-  }, [modalData, fetchedCharacters, loading, error]);
-
-  // useEffect(() => {
-  //   console.log(coincidencias);
-  //   if (!loading && !error) {
-  //     setCharacters(fetchedCharacters.results);
-  //   }
-  // }, [fetchedCharacters, loading, error]);
+  }, [fetchedCharacters, loading, error]);
 
   return (
     <div className="bg-opacity-75 bg-black top-0 left-0 right-0 bottom-0 absolute flex items-center justify-center pt-12">
-      <div className="rounded-xl w-3/4 h-3/4 max-sm:w-10/12 max-sm:h-5/6 opacity-100 flex flex-col justify-center items-center bg-color-fondo-oscuro p-4">
+      <div className="Modal rounded-xl w-3/4 h-3/4 max-sm:w-10/12 max-sm:h-5/6 opacity-100 flex flex-col justify-center items-center bg-color-fondo-oscuro p-4">
         {/* XMarkIcon */}
         <div className="flex w-full justify-end z-10 items-center">
           <div className=" relative flex justify-center items-center w-full">
@@ -76,12 +59,12 @@ const EpisodeDetail = () => {
           <div className="flex flex-row w-full justify-center max-sm:justify-center items-center h-full max-sm:flex-col">
             <div className="m-2 pr-6">
               <img
-                className="rounded-lg h-52"
+                className="rounded-lg h-36"
                 src="https://i.postimg.cc/250MMJWP/tocar-1.png"
                 alt="img"
               />
             </div>
-            <div className='text-xl'>
+            <div className="text-xl">
               <span className="flex flex-row">
                 <p className="pr-1 font-bold">Name:</p>
                 <p>{modalData.data.name}</p>
@@ -95,21 +78,11 @@ const EpisodeDetail = () => {
                 <p>{modalData.data.air_date}</p>
               </span>
             </div>
-            {/* <div>
-              {characters.map((item) => (
-                <img
-                  className="h-7"
-                  key={item?.id}
-                  src={item?.image}
-                  alt="Image"
-                />
-              ))}
-            </div> */}
           </div>
           <div>
-            <h1 className='text-xl font-bold'>Personajes que aparecen:</h1>
-            <div>
-              <img src="" alt="img" />
+            <h1 className="text-xl font-bold">Personajes que aparecen:</h1>
+            <div className="w-full">
+              <ImageSlider characters={characters} />
             </div>
           </div>
         </div>

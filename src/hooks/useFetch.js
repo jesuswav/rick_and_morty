@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { CardContext } from 'context';
 
 const useFetch = (endPoint, page, ids) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { globalError, setGlobalError } = useContext(CardContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,8 +16,6 @@ const useFetch = (endPoint, page, ids) => {
           url = `${endPoint}?page=${page}`;
         } else if (page === -1) {
           url = `${endPoint}/${ids}`;
-          console.log('Hola')
-          console.log(url);
         }
 
         const response = await axios.get(url);
@@ -23,6 +23,7 @@ const useFetch = (endPoint, page, ids) => {
         setLoading(false);
       } catch (error) {
         setError(error);
+        setGlobalError(error);
         setLoading(false);
       }
     };

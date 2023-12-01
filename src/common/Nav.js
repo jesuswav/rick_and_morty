@@ -4,7 +4,7 @@ const Nav = () => {
   const router = useRouter();
   const route = router.asPath.substring(1);
   return (
-    <nav>
+    <nav className='Navbar'>
       <div>
         <h2>{route}</h2>
       </div>

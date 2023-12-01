@@ -1,31 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const CardContext = React.createContext();
 
 function CardProvider({ children }) {
-  console.log('Provider');
-
   const [openModal, setOpenModal] = React.useState(false);
   const [openEpisodeModal, setOpenEpisodeModal] = React.useState(false);
   const [modalData, setModalData] = React.useState([]);
 
+  // State for Characters ids in the EpisodeDetail
+  const [coincidencias, setCoincidencias] = React.useState([]);
+
   // States for Slider
-  const [start, setStart] = React.useState(1);
-  const [end, setEnd] = React.useState(4);
+  const [start, setStart] = React.useState(0);
+  const [end, setEnd] = React.useState(3);
+
+  // Satate for filtered characters
+  const [filteredCharacters, setFilteredCharacters] = React.useState([]);
+  // State for not searched characters
+  const [notFilterCharacters, setNotFilterCharacters] = React.useState();
+
+  // State for global error
+  const [globalError, setGlobalError] = React.useState(null);
 
   return (
-    <CardContext.Provider value={{
-      openModal,
-      setOpenModal,
-      modalData,
-      setModalData,
-      openEpisodeModal,
-      setOpenEpisodeModal,
-      start,
-      setStart,
-      end,
-      setEnd
-    }}>
+    <CardContext.Provider
+      value={{
+        openModal,
+        setOpenModal,
+        modalData,
+        setModalData,
+        openEpisodeModal,
+        setOpenEpisodeModal,
+        coincidencias,
+        setCoincidencias,
+        start,
+        setStart,
+        end,
+        setEnd,
+        filteredCharacters,
+        setFilteredCharacters,
+        notFilterCharacters,
+        setNotFilterCharacters,
+        globalError,
+        setGlobalError,
+      }}
+    >
       {children}
     </CardContext.Provider>
   );

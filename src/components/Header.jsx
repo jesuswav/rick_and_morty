@@ -21,7 +21,7 @@ const Header = () => {
 
   const router = useRouter();
   return (
-    <div className="fixed top-0 left-0 right-2 bg-color-fondo-oscuro z-10">
+    <div className="Navbar fixed top-0 left-0 right-1 bg-color-fondo-oscuro z-10">
       <nav className="flex flex-row w-full items-center h-12 m-5 pr-5 overflow-hidden">
         <img
           className="h-24 z-30"
@@ -55,7 +55,7 @@ const Header = () => {
               }}
             ></img>
             <div
-              className={`${menuVisible} fixed top-20 pt-10 right-0 w-full h-full bg-black flex-col items-center`}
+              className={`${menuVisible} fixed top-20 pt-10 right-0 w-full h-full bg-color-fondo-oscuro flex-col items-center`}
             >
               {navigation.map((item) => (
                 <a
@@ -92,7 +92,7 @@ const Header = () => {
               }}
             ></img>
             <div
-              className={`${settingVisible} fixed pt-10 top-20 right-0 w-full h-full bg-black flex-col items-center`}
+              className={`${settingVisible} fixed pt-10 top-20 right-0 w-full h-full bg-color-fondo-oscuro flex-col items-center`}
             >
               {userNavigation.map((item) => (
                 <a key={item.name} href={item.href} className="text-xl my-3">

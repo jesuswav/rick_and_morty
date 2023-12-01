@@ -9,14 +9,14 @@ const Slider = ({ children }) => {
   const { end, setEnd } = React.useContext(CardContext);
 
   const addCharacters = () => {
-    if (end <= 19) {
+    if (end < 20) {
       setStart(start + 1);
       setEnd(end + 1);
     }
   };
 
   const quitCharacters = () => {
-    if (start > 1) {
+    if (start > 0) {
       console.log('Hola');
       setStart(start - 1);
       setEnd(end - 1);
@@ -24,10 +24,10 @@ const Slider = ({ children }) => {
   };
 
   return (
-    <div className="flex flex-col justify-center m-96">
+    <div className="flex flex-col justify-center pt-5">
       <div
         onClick={() => router.push('/home/characters')}
-        className="flex flex-row items-center m-5 cursor-pointer"
+        className="flex flex-row items-center cursor-pointer"
       >
         <h1 className="text-2xl">Characters</h1>
         <svg
@@ -62,7 +62,9 @@ const Slider = ({ children }) => {
           />
         </svg>
 
-        <div className="grid grid-cols-3 gap-6">{children}</div>
+        <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 p-4 px-10 max-sm:flex flex-col max-sm:p-5 items-center max-sm:w-full">
+          {children}
+        </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

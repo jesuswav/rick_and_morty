@@ -18,9 +18,9 @@ const Home = () => {
 
   const slides = [
     { url: 'https://i.postimg.cc/dVSrd7s6/banner-copia.png' },
-    { url: 'https://i.postimg.cc/xjBSzw6r/banner2.jpg' },
     { url: 'https://i.postimg.cc/L4g0PnqD/banner6.jpg' },
-    { url: 'https://i.postimg.cc/pTbX8vgy/banner7.webp' },
+    { url: 'https://i.postimg.cc/ncGDYk4H/banner8.png' },
+    { url: 'https://i.postimg.cc/MTF1jbQW/banner13.png' },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -69,18 +69,8 @@ const Home = () => {
 
   console.log('personajes', showCharacters);
 
-  const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
-
-  const addItem = () => {
-    setItems([...items, `Item ${items.length + 1}`]);
-  };
-
-  const removeItem = () => {
-    setItems(items.slice(0, -1));
-  };
-
   return (
-    <div className="Appears flex flex-col items-center justify-center pt-20">
+    <div className="Appears flex flex-col items-center justify-center pt-24">
       <div className="Appears max-w-[full] h-[320px] max-sm:h-[162px] w-full m-auto py-0 px-4 relative group">
         <div
           style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
@@ -122,12 +112,16 @@ const Home = () => {
             />
           </svg>
         </div>
-        <div className="flex top-4 justify-center py-2">
+        <div className="flex top-4 justify-center py-2 opacity-25">
           {slides.map((slide, slideIndex) => (
             <div
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
-              className="text-xs cursor-pointer"
+              className={
+                currentIndex === slideIndex
+                  ? 'opacity-100 text-xs cursor-pointer'
+                  : 'opacity-25 text-xs cursor-pointer'
+              }
             >
               ⚪
             </div>
@@ -152,7 +146,7 @@ const Home = () => {
           src="https://www.youtube.com/embed/j9_cxNM3BkI?si=ZIQwjGDthX8iKCv2"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
         <div className="flex flex-col w-96 px-10 max-sm:w-full max-sm:px-2">
           <h1 className="text-2xl pl-0">New season out now!</h1>
@@ -164,17 +158,13 @@ const Home = () => {
           </span>
         </div>
       </div>
-      <TransitionGroup className="transition-group">
-        <div className="Appears mx-44 select-none max-sm:mx-5">
-          <Slider>
-            {showCharacters?.map((item, index) => (
-              <CSSTransition key={index} timeout={500} classNames="fade">
-                <Card key={item?.id} data={item}></Card>
-              </CSSTransition>
-            ))}
-          </Slider>
-        </div>
-      </TransitionGroup>
+      <div className="Appears mx-24 select-none max-sm:mx-2">
+        <Slider>
+          {showCharacters?.map((item, index) => (
+            <Card key={item?.id} data={item}></Card>
+          ))}
+        </Slider>
+      </div>
 
       <div className="w-full mt-5">
         <Footer></Footer>

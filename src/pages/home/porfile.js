@@ -15,7 +15,7 @@ const Porfile = () => {
 
       <div id="user-info" className="text-center mt-4">
         <h1 className="text-xl font-bold">María Guadalupe</h1>
-        <p className="">17/abril/2005 | Calvillo | Licenciada</p>
+        <p className="text-gray-200">17 / julio / 2005 | Calvillo | Licenciada</p>
       </div>
 
       <div id="user-stats" className="flex justify-around p-4">
@@ -25,11 +25,11 @@ const Porfile = () => {
         </div>
         <div>
           <p className="font-bold">Seguidores</p>
-          <p>456</p>
+          <p className="text-gray-200">456</p>
         </div>
         <div>
           <p className="font-bold">Siguiendo</p>
-          <p>789</p>
+          <p className="text-gray-200">789</p>
         </div>
       </div>
 

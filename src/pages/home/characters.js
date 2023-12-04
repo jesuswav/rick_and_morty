@@ -3,6 +3,7 @@ import Card from '@components/Card';
 import Paginate from '@components/Paginate';
 import Search from '@components/Search';
 import Footer from '@common/Footer';
+import { CharacterLoading } from '@components/CharacterLoading';
 import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
 import { CardContext } from 'context';

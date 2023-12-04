@@ -5,6 +5,7 @@ import endPoints from '@services/api';
 import Paginate from '@components/Paginate';
 import Footer from '@common/Footer';
 import Search from '@components/Search';
+import { CharacterLoading } from '@components/CharacterLoading';
 
 const Episodes = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -29,9 +30,11 @@ const Episodes = () => {
         <Search></Search>
       </div>
       <div className="grid grid-cols-3 gap-6 pt-8 max-lg:grid-cols-2 p-4 px-10 max-sm:flex flex-col max-sm:p-5 items-center w-full">
-        {episodes.map((item) => (
-          <EpisodeCard key={item.id} data={item}></EpisodeCard>
-        ))}
+        {loading && <CharacterLoading />}
+        {!loading &&
+          episodes.map((item) => (
+            <EpisodeCard key={item.id} data={item}></EpisodeCard>
+          ))}
       </div>
       <div className="flex pt-10 h-10 items-center justify-center w-full">
         <Paginate

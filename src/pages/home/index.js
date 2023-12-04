@@ -151,10 +151,10 @@ const Home = () => {
         <div className="flex flex-col w-96 px-10 max-sm:w-full max-sm:px-2">
           <h1 className="text-2xl pl-0">New season out now!</h1>
           <span className="text-gray-300 pt-2 text-lg">
-            En esta nueva entrega, los personajes que amas enfrentarán desafíos
-            aún mayores, revelaciones impactantes y decisiones que cambiarán el
-            rumbo de sus vidas. ¿Estás listo para un viaje lleno de suspense,
-            intriga y acción?
+            In this new installment, the characters you love will face even
+            greater challenges, shocking revelations, and decisions that will
+            change the course of their lives. Are you ready for a journey full
+            of suspense, intrigue, and action?
           </span>
         </div>
       </div>
@@ -165,7 +165,91 @@ const Home = () => {
           ))}
         </Slider>
       </div>
+      {/* Next events */}
+      <div className="container mx-auto my-8 max-sm:mx-2 p-8 max-sm:p-2 bg-color-dark-background rounded shadow-md">
+        <h2 className="text-2xl font-semibold mb-6 ml-20">Upcoming Events</h2>
 
+        <div className="flex flex-wrap gap-4 justify-center">
+          <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 max-w-xs rounded overflow-hidden shadow-lg cursor-pointer hover:scale-110 duration-200">
+            <div className="px-6 max-sm:px-2 py-4">
+              <div className="flex items-center mb-2">
+                <div className="mr-2">
+                  <img
+                    className="h-8 md:h-10 lg:h-12"
+                    src="https://cdn-icons-png.flaticon.com/128/2838/2838558.png"
+                    alt="icon"
+                  />
+                </div>
+                <div className="font-bold text-xl">Urban Art Festival</div>
+              </div>
+              <p className="text-gray-200 text-sm mb-2 font-bold">
+                Date: 15/05/2023
+              </p>
+              <p className="text-gray-200 text-sm mb-4 font-semibold">
+                Location: Zócalo, Mexico City
+              </p>
+              <p className="text-gray-200 text-base">
+                Discover creative expression in the heart of the city. This
+                urban art festival brings together local and international
+                artists to transform Zócalo into an outdoor gallery.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 max-w-xs rounded overflow-hidden shadow-lg cursor-pointer hover:scale-110 duration-200">
+            <div className="px-6 max-sm:px-2 py-4">
+              <div className="flex items-cnter mb-2">
+                <div className="mr-2">
+                  <img
+                    className="h-8 md:h-10 lg:h-12"
+                    src="https://cdn-icons-png.flaticon.com/128/2838/2838558.png"
+                    alt="icon"
+                  />
+                </div>
+                <div className="font-bold text-xl">Beach Concert</div>
+              </div>
+              <p className="text-gray-200 text-sm mb-2 font-bold">
+                Date: 22/07/2023
+              </p>
+              <p className="text-gray-200 text-sm mb-4 font-semibold">
+                Location: Playa del Carmen, Quintana Roo
+              </p>
+              <p className="text-gray-200 text-base">
+                Enjoy an unforgettable night with live music by the sea. This
+                beach concert features local artists and provides the
+                opportunity to dance under the stars in a magical setting.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 max-w-xs rounded overflow-hidden shadow-lg cursor-pointer hover:scale-110 duration-200">
+            <div className="px-6 max-sm:px-2 py-4">
+              <div className="flex items-center mb-2">
+                <div className="mr-2">
+                  <img
+                    className="h-8 md:h-10 lg:h-12"
+                    src="https://cdn-icons-png.flaticon.com/128/2838/2838558.png"
+                    alt="icon"
+                  />
+                </div>
+                <div className="font-bold text-xl">Gastronomic Fair</div>
+              </div>
+              <p className="text-gray-200 text-sm mb-2 font-bold">
+                Date: 10/09/2023
+              </p>
+              <p className="text-gray-200 text-sm mb-4 font-semibold">
+                Location: Paseo de la Reforma, Mexico City
+              </p>
+              <p className="text-gray-200 text-base">
+                Explore culinary diversity at the city's largest gastronomic
+                fair. Experience authentic flavors, from traditional dishes to
+                innovative creations, while enjoying live music and
+                entertainment for the whole family.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="w-full mt-5">
         <Footer></Footer>
       </div>

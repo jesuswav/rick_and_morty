@@ -1,6 +1,6 @@
 const Porfile = () => {
   return (
-    <div className="pt-24 w-full">
+    <div className="pt-24 w-full mx-40 max-sm:mx-4">
       <header className="p-4 text-center">
         <h1 className="text-2xl">María</h1>
       </header>

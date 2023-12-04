@@ -29,7 +29,7 @@ const Slider = ({ children }) => {
         onClick={() => router.push('/home/characters')}
         className="flex flex-row items-center cursor-pointer"
       >
-        <h1 className="text-2xl">Characters</h1>
+        <h1 className="text-2xl mb-2">Characters</h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

@@ -55,7 +55,7 @@ const Header = () => {
               }}
             ></img>
             <div
-              className={`${menuVisible} fixed top-20 pt-10 right-0 w-full h-full bg-color-fondo-oscuro flex-col items-center`}
+              className={`${menuVisible} z-30 fixed top-20 pt-10 right-0 w-full h-full bg-color-fondo-oscuro flex-col items-center`}
             >
               {navigation.map((item) => (
                 <a

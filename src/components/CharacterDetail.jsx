@@ -7,10 +7,10 @@ const CharacterDetail = () => {
 
   return (
     <div className="bg-opacity-75 bg-black top-0 left-0 right-0 bottom-0 absolute flex items-center justify-center pt-12">
-      <div className="Modal rounded-xl w-3/4 h-3/4 max-sm:w-10/12 max-sm:h-5/6 opacity-100 flex flex-col justify-center items-center bg-color-fondo-oscuro p-4">
+      <div className="Modal rounded-3xl w-auto px-24 max-sm:px-0 h-auto py-8 max-sm:w-10/12 max-sm:h-auto opacity-100 flex flex-col justify-center items-center bg-color-fondo-oscuro p-4">
         {/* XMarkIcon */}
-        <div className="flex w-full justify-end z-10 items-center">
-          <div className=" relative flex justify-center items-center w-full">
+        <div className="flex w-full justify-end items-center">
+          <div className="pb-4 relative flex justify-center items-center w-full">
             <h1 className="font-bold text-2xl">Character Detail!</h1>
           </div>
           <svg
@@ -19,7 +19,7 @@ const CharacterDetail = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-10 h-10 relative -top-2 -right-2 cursor-pointer"
+            className="w-10 h-10 relative -top-8 -right-24 max-sm:right-2 cursor-pointer"
             onClick={(event) => {
               setOpenModal(!openModal);
               console.log(openModal);
@@ -36,10 +36,10 @@ const CharacterDetail = () => {
         <div className="w-full h-full flex flex-col items-center">
           {/* Info from API */}
           <div className="flex flex-row w-full justify-center max-sm:justify-center items-center h-full max-sm:flex-col">
-            <div className="m-2 pr-6">
+            <div className="m-2 pr-6 max-sm:pr-0">
               <img className="rounded-lg" src={modalData.data.image} alt="img" />
             </div>
-            <div className="flex flex-col justify-start max-sm:w-full max-sm:pl-2">
+            <div className="flex flex-col justify-start max-sm:w-full max-sm:pl-6">
               <span className="flex flex-row max-sm:pt-2">
                 <p className="font-bold pr-1">Nombre:</p>
                 <p className="text-gray-300">{modalData.data.name}</p>
@@ -73,9 +73,9 @@ const CharacterDetail = () => {
                 </p>
               </span>
               <span className="flex flex-row pt-5 max-sm:pt-1">
-                <p className="font-bold pr-1">Aparece en:</p>
+                <p className="font-bold pr-1">Appears in:</p>
                 <p className="text-gray-300">
-                  {modalData.data.episode.length} Episodios
+                  {modalData.data.episode.length} Episodes
                 </p>
               </span>
             </div>

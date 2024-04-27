@@ -29,8 +29,8 @@ const EpisodeDetail = () => {
   }, [fetchedCharacters, loading, error]);
 
   return (
-    <div className="bg-opacity-75 bg-black top-0 left-0 right-0 bottom-0 absolute flex items-center justify-center pt-12">
-      <div className="Modal rounded-3xl w-auto px-24 max-sm:px-0 h-auto max-sm:w-10/12 max-sm:h-auto opacity-100 flex flex-col justify-center items-center bg-color-fondo-oscuro p-4">
+    <div className="bg-opacity-75 bg-black top-0 left-0 right-0 bottom-0 absolute flex items-center justify-center pt-20">
+      <div className="Modal rounded-3xl w-auto px-24 max-sm:px-0 h-auto max-sm:w-10/12 max-sm:h-auto opacity-100 flex flex-col justify-center items-center bg-color-fondo-oscuro">
         {/* XMarkIcon */}
         <div className="flex w-full justify-end items-center">
           <div className="p-4 relative flex justify-center items-center w-full">
@@ -42,7 +42,7 @@ const EpisodeDetail = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-10 h-10 relative -top-6 -right-24 max-sm:right-2 cursor-pointer"
+            className="w-10 h-10 relative -top-2 -right-24 max-sm:right-2 cursor-pointer"
             onClick={(event) => {
               setOpenEpisodeModal(!openEpisodeModal);
               console.log(modalData);
